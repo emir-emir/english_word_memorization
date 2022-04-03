@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -30,7 +29,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-                                /**  ENGLİSH PART **/
+  /**  ENGLİSH PART **/
 
   Padding englishPart(Counter Counter) {
     return Padding(
@@ -47,16 +46,14 @@ class HomePage extends StatelessWidget {
             listTileEnglishPart(Counter),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                butttomReduceEnglish(Counter),
-                buttonIncreaseEnglish(Counter)
-              ],
+              children: [butttomReduceEnglish(Counter), buttonIncreaseEnglish(Counter)],
             ),
           ],
         ),
       ),
     );
   }
+
   Padding listTileEnglishPart(Counter Counter) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -67,14 +64,16 @@ class HomePage extends StatelessWidget {
           )),
     );
   }
+
   GlobalButton butttomReduceEnglish(Counter Counter) {
     return GlobalButton(
-                onPressed: () {
-                  Counter.ingilizceCounter == 0 ? null : Counter.ingilizceAzalt();
-                },
-                textName: "İngilizce Azalt",
-              );
+      onPressed: () {
+        Counter.ingilizceCounter == 0 ? null : Counter.ingilizceAzalt();
+      },
+      textName: "İngilizce Azalt",
+    );
   }
+
   GlobalButton buttonIncreaseEnglish(Counter Counter) {
     return GlobalButton(
       textName: "İngilizce Arttır",
@@ -84,43 +83,40 @@ class HomePage extends StatelessWidget {
     );
   }
 
-
-
-                                  /**  TURKİSH PART **/
+  /**  TURKİSH PART **/
   Padding turkishPart(Counter Counter) {
     return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0),
-            child: Container(
-                decoration: BoxDecoration(border: Border.all(color: Colors.purple, width: 5)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    GlobalText(textName: "Türkçe"),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: listTileTurkishPart(Counter),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        butttomReduceTurkish(Counter),
-                        buttonIncreaseTurkish(Counter)
-                      ],
-                    ),
-                  ],
-                )),
-          );
+      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+      child: Container(
+          decoration: BoxDecoration(border: Border.all(color: Colors.purple, width: 5)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GlobalText(textName: "Türkçe"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: listTileTurkishPart(Counter),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [butttomReduceTurkish(Counter), buttonIncreaseTurkish(Counter)],
+              ),
+            ],
+          )),
+    );
   }
+
   ListTile listTileTurkishPart(Counter Counter) {
     return ListTile(
         leading: CircleAvatar(
             child: GlobalText(
-              textName: Counter.turkceCounter.toString(),
-            )),
+          textName: Counter.turkceCounter.toString(),
+        )),
         title: GlobalText(
           textName: TurkishWord.turkceList[Counter.turkceCounter],
         ));
   }
+
   GlobalButton butttomReduceTurkish(Counter Counter) {
     return GlobalButton(
       textName: "Türkçe Azalt",
@@ -129,15 +125,17 @@ class HomePage extends StatelessWidget {
       },
     );
   }
+
   GlobalButton buttonIncreaseTurkish(Counter Counter) {
     return GlobalButton(
-                        textName: "Türkçe Arttır",
-                        onPressed: () {
-                          Counter.turkceCounter == TurkishWord.turkceList.length - 1 ? null : Counter.turkceArttir();
-                        },
-                      );
+      textName: "Türkçe Arttır",
+      onPressed: () {
+        Counter.turkceCounter == TurkishWord.turkceList.length - 1 ? null : Counter.turkceArttir();
+      },
+    );
   }
-                                   /**  RESET PART **/
+
+  /**  RESET PART **/
   GlobalButton resetPart(Counter Counter) {
     return GlobalButton(
         textName: "Sıfırla",
@@ -145,5 +143,4 @@ class HomePage extends StatelessWidget {
           Counter.reset();
         });
   }
-
 }
