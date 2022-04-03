@@ -23,4 +23,10 @@ class Counter extends ChangeNotifier {
     turkceCounter--;
     notifyListeners();
   }
+
+  void reset() {
+    ingilizceCounter = 0;
+    turkceCounter = 0;
+    notifyListeners();
+  }
 }

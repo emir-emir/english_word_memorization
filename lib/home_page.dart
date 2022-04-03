@@ -107,8 +107,7 @@ class HomePage extends StatelessWidget {
             GlobalButton(
                 textName: "Sıfırla",
                 onPressed: () {
-                  Counter.ingilizceCounter = 0;
-                  Counter.turkceCounter = 0;
+                  Counter.reset();
                 }),
           ],
         );
